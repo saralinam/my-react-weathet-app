@@ -63,9 +63,9 @@ if (ready) {
             </div>
     );
 } else {
-    const apiKey="8cfa4dd3ccafa97ae01716474ab8d486";
+    let apiKey="8cfa4dd3ccafa97ae01716474ab8d486";
     let city = "New York";
-    let apiUrl=`http://api.openweathermap.org/data/2.5/weather?q=${city}=${apiKey}&units=metric`;
+    let apiUrl=`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
 
     return "Loading...";
