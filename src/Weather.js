@@ -42,7 +42,7 @@ if (ready) {
                     alt="Mostly Cloudy"
                     className="float-left"
                     />
-                   <span className="temperature">{temperature}</span>
+                   <span className="temperature">{}</span>
                    <span className="unit">°C</span>
                    </div>
                 </div>
