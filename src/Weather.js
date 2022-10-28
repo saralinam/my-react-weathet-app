@@ -1,17 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import "./Weather.css";
 
+
 export default function Weather() {
+    const [ready, setReady] = useState(false);
+const [temperature, setTemperature] = useState(null);
+
 function handleResponse(response) {
     console.log(response.data);
+    setTemperature(response.data.main.temp);
+    setReady(true);
 }
 
-const apiKey="8cfa4dd3ccafa97ae01716474ab8d486";
-let city = "New York";
-let apiUrl=`https://api.openweathermap.org/data/2.5/weather?q=${city}=${apiKey}&units=metric`;
-axios.get(apiUrl).then(handleResponse);
-
+if (ready) {
     return (
         <div className="Weather">
             <form>
@@ -40,7 +42,7 @@ axios.get(apiUrl).then(handleResponse);
                     alt="Mostly Cloudy"
                     className="float-left"
                     />
-                   <span className="temperature">21</span>
+                   <span className="temperature">{temperature}</span>
                    <span className="unit">°C</span>
                    </div>
                 </div>
@@ -60,4 +62,14 @@ axios.get(apiUrl).then(handleResponse);
             </div>
             </div>
     );
+} else {
+    const apiKey="8cfa4dd3ccafa97ae01716474ab8d486";
+    let city = "New York";
+    let apiUrl=`https://api.openweathermap.org/data/2.5/weather?q=${city}=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+
+    return "Loading...";
+}
+
+
 }

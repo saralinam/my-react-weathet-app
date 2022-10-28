@@ -9,7 +9,10 @@ export default function App() {
       <Weather />
 <footer>
   This project was coded by  Sara Mouwakee and is {" "}
-  <a href="https://github.com/Sara-mwk/my-react-weathet-app">open sourced on GitHub</a>
+  <a href="https://github.com/Sara-mwk/my-react-weathet-app" 
+  target="_blank" 
+  rel="noopener"
+   >open sourced on GitHub</a>
 </footer>
 </div>
     </div>);
