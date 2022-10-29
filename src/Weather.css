@@ -33,14 +33,10 @@
     font-size: 64px;
     font-weight: 400;
 }
-.Weather img {
-height: 64px;
-width: 64px;
-line-height: 64px;
+.Weather canvas {
+    margin-top: 5px;
 margin-right: 10px;
 display: inline-block;
-position: relative;
-top: -16px;
 }
 .Weather .unit {
     color: rgb(33, 33, 33);
