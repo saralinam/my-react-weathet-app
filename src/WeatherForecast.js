@@ -7,15 +7,14 @@ import { useLayoutEffect } from "react";
 export default function WeatherForeacst(props) {
    let [loaded, setLoaded] = useState(false); 
    let [forecast, setForecast] = useState(null); 
-     
-   useEffect(function(){
-   setLoaded(false); 
-   }, [props.coordinates]);
+   
+   useEffect(function() {
+  setLoaded(false);
 
-
+   }, [props.coordinates]); 
    //if the coordinates change
-   // set loaded false  
-
+    
+  
    function handleResponse(response) {
     setForecast(response.data.daily)
     setLoaded(true);
@@ -27,21 +26,20 @@ export default function WeatherForeacst(props) {
         return (
             <div className="WeatherForecast">
                 <div className="row">
-                  {forecast.map(function(daylyForecast, index) {
-                      if (index < 5) {
+                         {forecast.map(function(dailyForecast, index) {
+                          if (index < 5) {
+                            return(
+                              <div className="col" key={index}>   
+                              
+                              <WeatherForecastDay data={dailyForecast} />
+                            </div> 
+                            );
+                          } else {
+                            return null;
+                          }
                         
-                        return (
-                            <div className="col" key={index}>
-                                
-                            <WeatherForecastDay data={daylyForecast} />
-                          </div>   
-                        );
-                      } else {
-                        return null;
-                      }
-                  })}
-
-                  
+                         })}
+                             
                 </div>
             </div>
         );
